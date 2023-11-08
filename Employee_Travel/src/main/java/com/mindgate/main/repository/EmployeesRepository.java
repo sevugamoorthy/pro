@@ -50,22 +50,34 @@ public class EmployeesRepository implements EmployeesRepositoryInterface {
 	
 	
 	@Override
-	public boolean addNewEmployee(Employees employees) {
-		Object [] parameter={employees.getEmployeeName(),employees.getRole(),employees.getManagerId(),employees.getSlab().getSlabId(),employees.getProjectName(),employees.getEmail(),employees.getEmployeePassword(),employees.getCount(),employees.getLoginStatus()};
-		jdbcTemplate.update(INSERT_NEW_EMPLOYEE, parameter);
-		
-		int rowCount = jdbcTemplate.update(INSERT_NEW_EMPLOYEE, parameter);
-		if (rowCount > 0)
-			return true;
-		else
-			return false;
-	}
+    public boolean addNewEmployee(Employees employees) {
+        Object [] parameter={employees.getEmployeeName(),employees.getRole()
+                ,employees.getManagerId(),employees.getSlab().getSlabId(),
+                employees.getProjectName(),employees.getEmail(),
+                employees.getEmployeePassword(),employees.getLoginStatus(),
+                employees.getCount()};        
+        int rowCount = jdbcTemplate.update(INSERT_NEW_EMPLOYEE, parameter);
+        if (rowCount > 0)
+            return true;
+        else
+            return false;
+    }
 
 	@Override
-	public Employees updateEmployee(Employees employees) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Employees updateEmployee(Employees employees) {
+        Object [] parameter= {employees.getEmployeeName(),
+                employees.getRole()
+                ,employees.getManagerId(),
+                employees.getProjectName(),
+                employees.getEmail(),
+                employees.getEmployeePassword(),employees.getEmployeeId()}; 
+        int rowCount = jdbcTemplate.update(UPDATE_EXISTING_EMPLOYEE, parameter);
+        
+        if (rowCount > 0)
+            return employees;
+        else
+            return employees;
+    }
 
 	
 	

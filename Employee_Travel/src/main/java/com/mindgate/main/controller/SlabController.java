@@ -19,16 +19,21 @@ public class SlabController {
 	@Autowired
 	private SlabServiceInterface slabServiceInterface;
 	
+	//http://localhost:8081/slabapi/slab
+	
 	@RequestMapping(value="slab", method = RequestMethod.GET)
 	public List<Slab> getAllSlab(){
 		return slabServiceInterface.getAllSlab();
 	}
 	
+	//http://localhost:8081/slabapi/slab/add
 	
 	@RequestMapping(value="slab/add",method = RequestMethod.POST)
 	public boolean addNewSlab(@RequestBody Slab slab) {
 		return slabServiceInterface.addNewSlab(slab);
 	}
+	
+	//http://localhost:8081/slabapi/slab/update
 	
 	@RequestMapping(value="slab/update", method = RequestMethod.PUT)
 	public Slab updateSlab(@RequestBody Slab slab) {
@@ -36,10 +41,14 @@ public class SlabController {
 		
 	}
 	
+	//http://localhost:8081/slabapi/slab/2
+	
 	@RequestMapping(value="slab/{slabId}", method = RequestMethod.GET)
 	public Slab getOneSlab(@PathVariable int slabId){
 		return slabServiceInterface.getSlabBySlabId(slabId);
 	}
+	
+	//http://localhost:8081/slabapi/slab/2
 	
 	@RequestMapping(value="slab/{slabId}", method = RequestMethod.DELETE)
 	public boolean deleteSlab(@PathVariable int slabId){

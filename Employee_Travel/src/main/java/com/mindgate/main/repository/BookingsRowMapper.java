@@ -65,19 +65,19 @@ public class BookingsRowMapper implements RowMapper<Bookings>{
 		
 		int bookingId=rs.getInt("booking_id");
 		String hotelName=rs.getString("hotel_name");
-		Clob hotelLocation=rs.getClob("hotel_location");
+		String hotelLocation=rs.getString("hotel_location");
 		Time checkInTime=rs.getTime("check_in_time");
 		Time checkOutTime=rs.getTime("check_out_time");
 		String transportationMode=rs.getString("transportation_mode");
 		String busTicket=rs.getString("bus_ticket");
 		String flightTicket=rs.getString("flight_ticket");
-		String trainTicket=rs.getString("train_pnr");
+		String trainPnr=rs.getString("train_pnr");
 		Blob ticket=rs.getBlob("ticket");
 		double forex=rs.getDouble("forex");
 		
 		if(ticket==null || ticket.length()<=0)
 			ticket=null;
-		Bookings bookings=new Bookings(bookingId, hotelName, hotelLocation, checkInTime, checkOutTime, transportationMode, flightTicket, busTicket, trainTicket, ticket, forex, travel_Requests);
+		Bookings bookings=new Bookings(travel_Requests, bookingId, hotelName, hotelLocation, checkInTime, checkOutTime, transportationMode, flightTicket, busTicket, trainPnr, ticket, forex);
 		
 		return bookings;
 	}

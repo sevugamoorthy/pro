@@ -5,28 +5,31 @@ import java.sql.Clob;
 import java.sql.Time;
 
 public class Bookings {
-	
+
 	private Travel_Requests travel_Requests;
 	private int bookingId;
 	private String hotelName;
-	private Clob hotelLocation;
+	private String hotelLocation;
 	private Time checkInTime;
 	private Time checkOutTime;
 	private String transportationMode;
 	private String flightTicket;
 	private String busTicket;
-	private String trainTicket;
+	private String trainPnr;
 	private Blob ticket;
 	private double forex;
-	
+
+//	hotelLocation=connection.createClob();
+
 	public Bookings() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Bookings(int bookingId, String hotelName, Clob hotelLocation, Time checkInTime, Time checkOutTime,
-			String transportationMode, String flightTicket, String busTicket, String trainTicket, Blob ticket,
-			double forex, Travel_Requests travel_Requests) {
+	public Bookings(Travel_Requests travel_Requests, int bookingId, String hotelName, String hotelLocation,
+			Time checkInTime, Time checkOutTime, String transportationMode, String flightTicket, String busTicket,
+			String trainPnr, Blob ticket, double forex) {
 		super();
+		this.travel_Requests = travel_Requests;
 		this.bookingId = bookingId;
 		this.hotelName = hotelName;
 		this.hotelLocation = hotelLocation;
@@ -35,9 +38,16 @@ public class Bookings {
 		this.transportationMode = transportationMode;
 		this.flightTicket = flightTicket;
 		this.busTicket = busTicket;
-		this.trainTicket = trainTicket;
+		this.trainPnr = trainPnr;
 		this.ticket = ticket;
 		this.forex = forex;
+	}
+
+	public Travel_Requests getTravel_Requests() {
+		return travel_Requests;
+	}
+
+	public void setTravel_Requests(Travel_Requests travel_Requests) {
 		this.travel_Requests = travel_Requests;
 	}
 
@@ -57,11 +67,11 @@ public class Bookings {
 		this.hotelName = hotelName;
 	}
 
-	public Clob getHotelLocation() {
+	public String getHotelLocation() {
 		return hotelLocation;
 	}
 
-	public void setHotelLocation(Clob hotelLocation) {
+	public void setHotelLocation(String hotelLocation) {
 		this.hotelLocation = hotelLocation;
 	}
 
@@ -105,12 +115,12 @@ public class Bookings {
 		this.busTicket = busTicket;
 	}
 
-	public String getTrainTicket() {
-		return trainTicket;
+	public String getTrainPnr() {
+		return trainPnr;
 	}
 
-	public void setTrainTicket(String trainTicket) {
-		this.trainTicket = trainTicket;
+	public void setTrainPnr(String trainPnr) {
+		this.trainPnr = trainPnr;
 	}
 
 	public Blob getTicket() {
@@ -129,24 +139,13 @@ public class Bookings {
 		this.forex = forex;
 	}
 
-	public Travel_Requests getTravel_Requests() {
-		return travel_Requests;
-	}
-
-	public void setTravel_Requests(Travel_Requests travel_Requests) {
-		this.travel_Requests = travel_Requests;
-	}
-
 	@Override
 	public String toString() {
-		return "Bookings [bookingId=" + bookingId + ", hotelName=" + hotelName + ", hotelLocation=" + hotelLocation
-				+ ", checkInTime=" + checkInTime + ", checkOutTime=" + checkOutTime + ", transportationMode="
-				+ transportationMode + ", flightTicket=" + flightTicket + ", busTicket=" + busTicket + ", trainTicket="
-				+ trainTicket + ", ticket=" + ticket + ", forex=" + forex + ", travel_Requests=" + travel_Requests
-				+ "]";
+		return "Bookings [travel_Requests=" + travel_Requests + ", bookingId=" + bookingId + ", hotelName=" + hotelName
+				+ ", hotelLocation=" + hotelLocation + ", checkInTime=" + checkInTime + ", checkOutTime=" + checkOutTime
+				+ ", transportationMode=" + transportationMode + ", flightTicket=" + flightTicket + ", busTicket="
+				+ busTicket + ", trainPnr=" + trainPnr + ", ticket=" + ticket + ", forex=" + forex + "]";
 	}
-
-	
 	
 	
 }

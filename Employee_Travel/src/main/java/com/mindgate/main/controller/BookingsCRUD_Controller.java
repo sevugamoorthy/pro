@@ -19,24 +19,36 @@ public class BookingsCRUD_Controller {
 	@Autowired
 	private BookingsServiceInterface bookingsServiceInterface;
 		
+	
+	//http://localhost:8081/bookingsapi/bookings
+	
 	@RequestMapping(value="bookings" , method=RequestMethod.POST)
 	public boolean addNewBooking(@RequestBody Bookings bookings ) {
 		return bookingsServiceInterface.addNewBooking(bookings);
 	}
+	
+	//http://localhost:8081/bookingsapi/bookings
+	
 	@RequestMapping(value="bookings",method = RequestMethod.PUT)
 	public Bookings updateBooking(@RequestBody Bookings bookings) {
 		return bookingsServiceInterface.updateBooking(bookings);
 	}
+	
+	//http://localhost:8081/bookingsapi/bookings/20
 	
 	@RequestMapping(value="bookings/{bookingId}",method = RequestMethod.DELETE)
 	public boolean deleteBookingByBookingId(@PathVariable int bookingId) {
 		return bookingsServiceInterface.deleteBookingByBookingId(bookingId);
 	}
 	
+	//http://localhost:8081/bookingsapi/bookings/20
+	
 	@RequestMapping(value="bookings/{bookingId}",method = RequestMethod.GET)
 	public Bookings getBookingByBookingId(@PathVariable int bookingId) {
 		return bookingsServiceInterface.getBookingByBookingId(bookingId);
 	}
+	
+	//http://localhost:8081/bookingsapi/bookings
 	
 	@RequestMapping(value="bookings",method = RequestMethod.GET)
 	public List<Bookings> getAllBookings(){

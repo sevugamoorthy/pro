@@ -14,29 +14,30 @@ public class BookingsRepository implements BookingsRepositoryInterface{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-	private final static String INSERT_NEW_BOOKING = "insert into BOOKINGS values(booking_id_sequence.nextVal,?,emptyclob(),?,?,?,?,?,?,?,emptyBlob(),?)";
+	private final static String INSERT_NEW_BOOKING = "insert into BOOKINGS values(booking_id_sequence.nextVal,?,?,?,?,?,?,?,?,?,empty_Blob(),?)";
     
-	private final static String UPDATE_EXISTING_BOOKING = "update BOOKINGS set hotel_name=?,hotel_location=?,check_in_time=?,check_out_time=?,transportation_mode=?,flight_ticket=?,bus_ticket=?,train_ticket=?,ticket=?,forex=? where booking_id=?" ;
+	private final static String UPDATE_EXISTING_BOOKING = "update BOOKINGS set hotel_name=?,hotel_location=?,check_in_time=?,check_out_time=?,transportation_mode=?,flight_ticket=?,bus_ticket=?,train_pnr=?,ticket=?,forex=? where booking_id=?" ;
     
 	private final static String DELETE_EXISTING_BOOKING = "delete from BOOKINGS where booking_id =?";
     
 	private final static String SELECT_ALL_BOOKING = "select * from BOOKINGS join TRAVEL_REQUESTS using (TRAVEL_REQUEST_ID) join EMPLOYEES using (employee_id) join SLAB using (slab_id)";
     
-	private final static String SELECT_ONE_BOOKING = "select * from BOOKINGS join TRAVEL_REQUESTS using (TRAVEL_REQUEST_ID) join EMPLOYEES using (employee_id) join SLAB using (slab_id) and BOOKING_ID=?";
+	private final static String SELECT_ONE_BOOKING = "select * from BOOKINGS join TRAVEL_REQUESTS using (TRAVEL_REQUEST_ID) join EMPLOYEES using (employee_id) join SLAB using (slab_id) where BOOKING_ID=?";
 
 	@Override
 	public boolean addNewBooking(Bookings bookings) {
+
 		Object[] parameters= {
-				bookings.getTravel_Requests(),
+				bookings.getTravel_Requests().getTravelRequestId(),
 				bookings.getHotelName(),
 				bookings.getHotelLocation(),
 				bookings.getCheckInTime(),
 				bookings.getCheckOutTime(),
 				bookings.getTransportationMode(),
-				bookings.getBusTicket(),
-				bookings.getTrainTicket(),
 				bookings.getFlightTicket(),
-				bookings.getTicket(),
+				bookings.getBusTicket(),
+				bookings.getTrainPnr(),
+//				bookings.getTicket(),
 				bookings.getForex()
 				
 		};
@@ -58,10 +59,11 @@ public class BookingsRepository implements BookingsRepositoryInterface{
 				bookings.getCheckOutTime(),
 				bookings.getTransportationMode(),
 				bookings.getBusTicket(),
-				bookings.getTrainTicket(),
+				bookings.getTrainPnr(),
 				bookings.getFlightTicket(),
 				bookings.getTicket(),
-				bookings.getTravel_Requests(),
+				bookings.getForex(),
+//				bookings.getTravel_Requests(),
 				bookings.getBookingId()};
 		
 		int rowCount=jdbcTemplate.update(UPDATE_EXISTING_BOOKING, parameters);
