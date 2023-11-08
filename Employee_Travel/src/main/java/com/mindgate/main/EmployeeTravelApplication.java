@@ -9,6 +9,7 @@ public class EmployeeTravelApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EmployeeTravelApplication.class, args);
 		System.out.println("Employee Travel Is Deployed Successfully!");
+		System.out.println("This is new change");
 	}
 
 }
