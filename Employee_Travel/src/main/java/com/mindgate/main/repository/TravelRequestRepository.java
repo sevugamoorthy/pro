@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.mindgate.main.domain.Travel_Requests;
+import com.mindgate.main.domain.TravelRequests;
 
 @Repository
 public class TravelRequestRepository implements TravelRequestRepositoryInterface {
@@ -24,7 +24,7 @@ public class TravelRequestRepository implements TravelRequestRepositoryInterface
 	private static String DELETE_QUERY = "delete from travel_requests where travel_request_id=?";
 
 	@Override
-	public boolean createNewTravelRequest(Travel_Requests travel_Requests) {
+	public boolean createNewTravelRequest(TravelRequests travel_Requests) {
 		Object[] parameters = { travel_Requests.getEmployees().getEmployeeId(), travel_Requests.getBoardingPoint(),
 				travel_Requests.getDestination(), travel_Requests.getFromDate(), travel_Requests.getToDate(),
 				travel_Requests.getManagerApproval(), travel_Requests.getAgentApproval(),
@@ -38,7 +38,7 @@ public class TravelRequestRepository implements TravelRequestRepositoryInterface
 	}
 
 	@Override
-	public Travel_Requests updateRequest(Travel_Requests travel_Requests) {
+	public TravelRequests updateRequest(TravelRequests travel_Requests) {
 		String UPDATE_QUERY_1st = "update travel_requests set ";
 		String UPDATE_QUERY_2st = " updated_at=systimestamp where travel_request_id = ?";
 		if (travel_Requests.getEmployees() != null)
@@ -70,7 +70,7 @@ public class TravelRequestRepository implements TravelRequestRepositoryInterface
 	}
 
 	@Override
-	public Travel_Requests updateTravelRequest(Travel_Requests travel_Requests) {
+	public TravelRequests updateTravelRequest(TravelRequests travel_Requests) {
 		Object[] parameters = { travel_Requests.getBoardingPoint(), travel_Requests.getDestination(),
 				travel_Requests.getFromDate(), travel_Requests.getToDate(), travel_Requests.getManagerApproval(),
 				travel_Requests.getAgentApproval(), travel_Requests.getDirectorApproval(),
@@ -84,17 +84,17 @@ public class TravelRequestRepository implements TravelRequestRepositoryInterface
 	}
 
 	@Override
-	public Travel_Requests getTravelRequestById(int travelRequestId) {
+	public TravelRequests getTravelRequestById(int travelRequestId) {
 		TravelRequestRowMapper travelRequestRowMapper = new TravelRequestRowMapper();
-		Travel_Requests travel_Requests = jdbcTemplate.queryForObject(GET_REQUEST_QUERY, travelRequestRowMapper,
+		TravelRequests travel_Requests = jdbcTemplate.queryForObject(GET_REQUEST_QUERY, travelRequestRowMapper,
 				travelRequestId);
 		return travel_Requests;
 	}
 
 	@Override
-	public List<Travel_Requests> getAllTravelRequests() {
+	public List<TravelRequests> getAllTravelRequests() {
 		TravelRequestRowMapper travelRequestRowMapper = new TravelRequestRowMapper();
-		List<Travel_Requests> travelRequestsList = jdbcTemplate.query(GET_ALL_REQUESTS_QUERY, travelRequestRowMapper);
+		List<TravelRequests> travelRequestsList = jdbcTemplate.query(GET_ALL_REQUESTS_QUERY, travelRequestRowMapper);
 		return travelRequestsList;
 	}
 

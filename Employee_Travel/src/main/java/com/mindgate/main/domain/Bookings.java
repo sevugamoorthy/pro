@@ -1,12 +1,11 @@
 package com.mindgate.main.domain;
 
 import java.sql.Blob;
-import java.sql.Clob;
 import java.sql.Time;
 
 public class Bookings {
 
-	private Travel_Requests travel_Requests;
+	private TravelRequests travel_Requests;
 	private int bookingId;
 	private String hotelName;
 	private String hotelLocation;
@@ -25,7 +24,7 @@ public class Bookings {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Bookings(Travel_Requests travel_Requests, int bookingId, String hotelName, String hotelLocation,
+	public Bookings(TravelRequests travel_Requests, int bookingId, String hotelName, String hotelLocation,
 			Time checkInTime, Time checkOutTime, String transportationMode, String flightTicket, String busTicket,
 			String trainPnr, Blob ticket, double forex) {
 		super();
@@ -43,11 +42,11 @@ public class Bookings {
 		this.forex = forex;
 	}
 
-	public Travel_Requests getTravel_Requests() {
+	public TravelRequests getTravel_Requests() {
 		return travel_Requests;
 	}
 
-	public void setTravel_Requests(Travel_Requests travel_Requests) {
+	public void setTravel_Requests(TravelRequests travel_Requests) {
 		this.travel_Requests = travel_Requests;
 	}
 

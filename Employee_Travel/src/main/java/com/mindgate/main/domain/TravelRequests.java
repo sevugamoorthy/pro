@@ -4,7 +4,7 @@ import java.sql.Blob;
 import java.sql.Timestamp;
 import java.util.Date;
 
-public class Travel_Requests {
+public class TravelRequests {
 
 	private int travelRequestId;
 	private Employees employees;
@@ -22,11 +22,11 @@ public class Travel_Requests {
 	private Timestamp createdAt;
 	private Timestamp updatedAt;
 	
-	public Travel_Requests() {
+	public TravelRequests() {
 		
 	}
 
-	public Travel_Requests(int travelRequestId, Employees employees, String boardingPoint, String destination,
+	public TravelRequests(int travelRequestId, Employees employees, String boardingPoint, String destination,
 			Date fromDate, Date toDate, String managerApproval, String agentApproval, String directorApproval,
 			double estimate, Blob aadhar, Blob passport, String documentStatus, Timestamp createdAt,
 			Timestamp updatedAt) {

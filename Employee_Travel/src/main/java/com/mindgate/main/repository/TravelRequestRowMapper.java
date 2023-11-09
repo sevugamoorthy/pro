@@ -11,12 +11,12 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.mindgate.main.domain.Employees;
 import com.mindgate.main.domain.Slab;
-import com.mindgate.main.domain.Travel_Requests;
+import com.mindgate.main.domain.TravelRequests;
 
-public class TravelRequestRowMapper implements RowMapper<Travel_Requests> {
+public class TravelRequestRowMapper implements RowMapper<TravelRequests> {
 
 	@Override
-	public Travel_Requests mapRow(ResultSet rs, int rowNum) throws SQLException {
+	public TravelRequests mapRow(ResultSet rs, int rowNum) throws SQLException {
 
 		// For Slab
 		int slabId = rs.getInt("slab_id");
@@ -63,7 +63,7 @@ public class TravelRequestRowMapper implements RowMapper<Travel_Requests> {
 			passport = null;
 		}
 			
-		Travel_Requests travel_Requests = new Travel_Requests(travelRequestId, employees, boardingPoint, destination,
+		TravelRequests travel_Requests = new TravelRequests(travelRequestId, employees, boardingPoint, destination,
 				fromDate, toDate, managerApproval, agentApproval, directorApproval, estimate, aadhar, passport,
 				documentStatus, createdAt, updatedAt);
 //		System.out.println(slab);

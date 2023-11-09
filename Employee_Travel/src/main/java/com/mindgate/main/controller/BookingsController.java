@@ -14,7 +14,7 @@ import com.mindgate.main.service.BookingsServiceInterface;
 
 @RestController
 @RequestMapping("bookingsapi")
-public class BookingsCRUD_Controller {
+public class BookingsController {
 	
 	@Autowired
 	private BookingsServiceInterface bookingsServiceInterface;

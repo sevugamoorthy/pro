@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.RowMapper;
 import com.mindgate.main.domain.Bookings;
 import com.mindgate.main.domain.Employees;
 import com.mindgate.main.domain.Slab;
-import com.mindgate.main.domain.Travel_Requests;
+import com.mindgate.main.domain.TravelRequests;
 
 public class BookingsRowMapper implements RowMapper<Bookings>{
 
@@ -61,7 +61,7 @@ public class BookingsRowMapper implements RowMapper<Bookings>{
         Timestamp createdAt = rs.getTimestamp("created_at");
         Timestamp updatedAt = rs.getTimestamp("updated_at");
         
-        Travel_Requests  travel_Requests = new Travel_Requests(travelRequestId, employees, boardingPoint, destination, fromDate, toDate, managerApproval, agentApproval, directorApproval, estimate, aadhar, passport, documentStatus, createdAt, updatedAt);
+        TravelRequests  travel_Requests = new TravelRequests(travelRequestId, employees, boardingPoint, destination, fromDate, toDate, managerApproval, agentApproval, directorApproval, estimate, aadhar, passport, documentStatus, createdAt, updatedAt);
 		
 		int bookingId=rs.getInt("booking_id");
 		String hotelName=rs.getString("hotel_name");
