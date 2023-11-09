@@ -17,6 +17,8 @@ public class EmployeeTravelApplication {
 		System.out.println("this is team lead");
 		System.out.println("spring boot ");
 		System.out.println("By Maggie");
+		System.out.println("By Maggie");
+		System.out.println("OKay NOw no issue with class files or properties");
 	}
 
 }
