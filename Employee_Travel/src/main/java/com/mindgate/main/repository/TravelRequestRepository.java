@@ -22,6 +22,8 @@ public class TravelRequestRepository implements TravelRequestRepositoryInterface
 	private static String GET_REQUEST_QUERY = "select * from TRAVEL_REQUESTS t inner join employees e on t.EMPLOYEE_ID = e.employee_id inner join slab s  on e.slab_id = s.SLAB_ID and t.TRAVEL_REQUEST_ID=?";
 	private static String GET_ALL_REQUESTS_QUERY = "select * from TRAVEL_REQUESTS inner join EMPLOYEES e on travel_requests.employee_id = e.EMPLOYEE_ID inner join SLAB s on s.SLAB_ID = e.SLAB_ID";
 	private static String DELETE_QUERY = "delete from travel_requests where travel_request_id=?";
+	
+	
 
 	@Override
 	public boolean createNewTravelRequest(TravelRequests travel_Requests) {

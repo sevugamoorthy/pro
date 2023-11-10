@@ -16,10 +16,12 @@ public class EmployeesRepository implements EmployeesRepositoryInterface {
 	
 //	private final static String INSERT_NEW_EMPLOYEE="insert into employees(employee_id,employee_name,role,manager_id,project_name,email,employee_password,login_status,count) values(employee_id_sequence.nextVal,?,?,?,?,?,?,?,?,?)";   
 	private final static String INSERT_NEW_EMPLOYEE="insert into employees values(employee_id_sequence.nextVal,?,?,?,?,?,?,?,?,?)";   
-	private final static String UPDATE_EXISTING_EMPLOYEE ="update employees set employee_name=?,role=?,manager_id=?,project_name=?,email=?,employee_password=?";
+	private final static String UPDATE_EXISTING_EMPLOYEE ="update employees set employee_name=?,role=?,manager_id=?,project_name=?,email=?,employee_password=? where employee_id=?";
 	private final static String DELETE_EXISTING_EMPLOYEE="delete from employees where employee_id=?";
 	private final static String SELECT_ALL_EMPLOYEE="select * from employees join slab using (slab_id)";
 	private final static String SELECT_ONE_EMPLOYEE="select * from employees join slab using (slab_id) where employee_id=?";
+	private final static String SELECT_ONE_EMPLOYEE_BY_EMAIL="select * from employees join slab using (slab_id) where email=?";
+	private final static String UPDATE_LOGIN_COUNT = "update employees set count=?, login_status=? where email=?";
 	
 	@Override
 	public List<Employees> getAllEmployees() {
@@ -79,8 +81,23 @@ public class EmployeesRepository implements EmployeesRepositoryInterface {
             return employees;
     }
 
+	@Override
+	public boolean updateCount(int count, String email) {
+		String status = count<3 ? "active" : "blocked";
+		Object[] parameters = {count, status, email};
+		int rowCount = jdbcTemplate.update(UPDATE_LOGIN_COUNT, parameters);
+		if (rowCount > 0)
+            return true;
+        else
+            return false;
+	}
 	
-	
+	@Override
+	public Employees getEmployeeByEmail(String email) {
+		EmployeesRowMapper employeesRowMapper=new EmployeesRowMapper();
+		Employees employees=jdbcTemplate.queryForObject(SELECT_ONE_EMPLOYEE_BY_EMAIL, employeesRowMapper, email);
+		return employees;
+	}
 	
 
 		

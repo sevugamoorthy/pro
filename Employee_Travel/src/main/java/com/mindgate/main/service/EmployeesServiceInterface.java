@@ -13,5 +13,6 @@ public interface EmployeesServiceInterface {
 	public boolean deleteEmployeeByEmployeeId(int employeeId);
 	public Employees getEmployeeByEmployeeId(int employeeId);
 	public List<Employees> getAllEmployees();
+	public Employees login(Employees employees);
 
 }

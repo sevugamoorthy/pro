@@ -13,4 +13,6 @@ public interface EmployeesRepositoryInterface {
 	public boolean deleteEmployeeByEmployeeId(int employeeId);
 	public Employees getEmployeeByEmployeeId(int employeeId);
 	public List<Employees> getAllEmployees();
+	public boolean updateCount(int count, String email);
+	public Employees getEmployeeByEmail(String email);
 }

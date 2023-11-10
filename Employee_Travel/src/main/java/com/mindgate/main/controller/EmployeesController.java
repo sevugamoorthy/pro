@@ -61,6 +61,11 @@ public class EmployeesController {
                     return employeesServiceInterface.updateEmployee(employees);
                 }
 	
+    
+                @RequestMapping(value="employee/login", method = RequestMethod.POST)
+                public Employees login(@RequestBody Employees employees) {
+                	return employeesServiceInterface.login(employees);
+                }
 				
 	
 }
