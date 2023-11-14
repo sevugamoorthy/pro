@@ -15,6 +15,7 @@ public class TravelRequests {
 	private String managerApproval;
 	private String agentApproval;
 	private String directorApproval;
+	private String transportationMode;
 	private double estimate;
 	private Blob aadhar;
 	private Blob passport;
@@ -28,8 +29,8 @@ public class TravelRequests {
 
 	public TravelRequests(int travelRequestId, Employees employees, String boardingPoint, String destination,
 			Date fromDate, Date toDate, String managerApproval, String agentApproval, String directorApproval,
-			double estimate, Blob aadhar, Blob passport, String documentStatus, Timestamp createdAt,
-			Timestamp updatedAt) {
+			String transportationMode, double estimate, Blob aadhar, Blob passport, String documentStatus,
+			Timestamp createdAt, Timestamp updatedAt) {
 		super();
 		this.travelRequestId = travelRequestId;
 		this.employees = employees;
@@ -40,6 +41,7 @@ public class TravelRequests {
 		this.managerApproval = managerApproval;
 		this.agentApproval = agentApproval;
 		this.directorApproval = directorApproval;
+		this.transportationMode = transportationMode;
 		this.estimate = estimate;
 		this.aadhar = aadhar;
 		this.passport = passport;
@@ -120,6 +122,14 @@ public class TravelRequests {
 		this.directorApproval = directorApproval;
 	}
 
+	public String getTransportationMode() {
+		return transportationMode;
+	}
+
+	public void setTransportationMode(String transportationMode) {
+		this.transportationMode = transportationMode;
+	}
+
 	public double getEstimate() {
 		return estimate;
 	}
@@ -170,14 +180,12 @@ public class TravelRequests {
 
 	@Override
 	public String toString() {
-		return "Travel_Requests [travelRequestId=" + travelRequestId + ", employees=" + employees + ", boardingPoint="
+		return "TravelRequests [travelRequestId=" + travelRequestId + ", employees=" + employees + ", boardingPoint="
 				+ boardingPoint + ", destination=" + destination + ", fromDate=" + fromDate + ", toDate=" + toDate
 				+ ", managerApproval=" + managerApproval + ", agentApproval=" + agentApproval + ", directorApproval="
-				+ directorApproval + ", estimate=" + estimate + ", aadhar=" + aadhar + ", passport=" + passport
-				+ ", documentStatus=" + documentStatus + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
+				+ directorApproval + ", transportationMode=" + transportationMode + ", estimate=" + estimate
+				+ ", aadhar=" + aadhar + ", passport=" + passport + ", documentStatus=" + documentStatus
+				+ ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
 	}
-
-	
-	
 	
 }

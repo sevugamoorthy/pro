@@ -60,8 +60,10 @@ public class BookingsRowMapper implements RowMapper<Bookings>{
         String documentStatus = rs.getString("document_status");
         Timestamp createdAt = rs.getTimestamp("created_at");
         Timestamp updatedAt = rs.getTimestamp("updated_at");
+		String requestedtransportationMode = rs.getString("transportation_mode");
+
         
-        TravelRequests  travel_Requests = new TravelRequests(travelRequestId, employees, boardingPoint, destination, fromDate, toDate, managerApproval, agentApproval, directorApproval, estimate, aadhar, passport, documentStatus, createdAt, updatedAt);
+		TravelRequests travel_Requests = new TravelRequests(travelRequestId, employees, boardingPoint, destination, fromDate, toDate, managerApproval, agentApproval, directorApproval, requestedtransportationMode, estimate, aadhar, passport, documentStatus, createdAt, updatedAt);
 		
 		int bookingId=rs.getInt("booking_id");
 		String hotelName=rs.getString("hotel_name");

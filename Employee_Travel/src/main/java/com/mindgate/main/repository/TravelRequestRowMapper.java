@@ -55,6 +55,7 @@ public class TravelRequestRowMapper implements RowMapper<TravelRequests> {
 		String documentStatus = rs.getString("document_status");
 		Timestamp createdAt = rs.getTimestamp("created_at");
 		Timestamp updatedAt = rs.getTimestamp("updated_at");
+		String transportationMode = rs.getString("transportation_mode");
 		
 		if(aadhar==null || aadhar.length()<=0) {
 			aadhar = null;
@@ -63,9 +64,7 @@ public class TravelRequestRowMapper implements RowMapper<TravelRequests> {
 			passport = null;
 		}
 			
-		TravelRequests travel_Requests = new TravelRequests(travelRequestId, employees, boardingPoint, destination,
-				fromDate, toDate, managerApproval, agentApproval, directorApproval, estimate, aadhar, passport,
-				documentStatus, createdAt, updatedAt);
+		TravelRequests travel_Requests = new TravelRequests(travelRequestId, employees, boardingPoint, destination, fromDate, toDate, managerApproval, agentApproval, directorApproval, transportationMode, estimate, aadhar, passport, documentStatus, createdAt, updatedAt);
 //		System.out.println(slab);
 //		System.out.println(employees);
 //		System.out.println(travel_Requests);
