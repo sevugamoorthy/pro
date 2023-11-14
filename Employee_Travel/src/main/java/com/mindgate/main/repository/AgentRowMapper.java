@@ -13,14 +13,16 @@ public class AgentRowMapper implements RowMapper<Agents> {
 	public Agents mapRow(ResultSet rs, int rowNum) throws SQLException {
 	
 		
-		int AgentId = rs.getInt("agent_id");
-		String AgentName = rs.getString("agent_name");
-		String AgentEmail=rs.getString("email");
-        String AgentPassword=rs.getString("agent_password");
-        String LoginStatus=rs.getString("login_status");
-        String AgentLogincount=rs.getString("count");
+		int agentId = rs.getInt("agent_id");
+		String agentName = rs.getString("agent_name");
+		String agentEmail=rs.getString("email");
+        String agentPassword=rs.getString("agent_password");
+        String loginStatus=rs.getString("login_status");
+        int agentLogincount=rs.getInt("count");
         
-		Agents agents=new Agents(AgentId, AgentName, AgentEmail, AgentPassword, LoginStatus, AgentId);
+        
+        
+		Agents agents=new Agents(agentId, agentName, agentEmail, agentPassword, loginStatus, agentLogincount);
 		
 		return agents;
 		

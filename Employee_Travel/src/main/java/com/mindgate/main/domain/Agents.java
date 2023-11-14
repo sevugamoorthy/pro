@@ -2,123 +2,80 @@ package com.mindgate.main.domain;
 
 public class Agents {
 
-	private int AgentId;
-	private String AgentName;
-	private String AgentEmail;
-	private String AgentPassword;
-	private String LoginStatus;
-	private int AgentLogincount;
+	private int agentId;
+	private String agentName;
+	private String agentEmail;
+	private String agentPassword;
+	private String loginStatus;
+	private int agentLogincount;
 	
-	public Agents() {
-		// TODO Auto-generated constructor stub
-	}
 	
-
-	
-
 	public Agents(int agentId, String agentName, String agentEmail, String agentPassword, String loginStatus,
 			int agentLogincount) {
 		super();
-		AgentId = agentId;
-		AgentName = agentName;
-		AgentEmail = agentEmail;
-		AgentPassword = agentPassword;
-		LoginStatus = loginStatus;
-		AgentLogincount = agentLogincount;
+		this.agentId = agentId;
+		this.agentName = agentName;
+		this.agentEmail = agentEmail;
+		this.agentPassword = agentPassword;
+		this.loginStatus = loginStatus;
+		this.agentLogincount = agentLogincount;
 	}
-
-
-
 
 	public int getAgentId() {
-		return AgentId;
+		return agentId;
 	}
-
-
-
 
 	public void setAgentId(int agentId) {
-		AgentId = agentId;
+		this.agentId = agentId;
 	}
-
-
-
 
 	public String getAgentName() {
-		return AgentName;
+		return agentName;
 	}
-
-
-
 
 	public void setAgentName(String agentName) {
-		AgentName = agentName;
+		this.agentName = agentName;
 	}
-
-
-
 
 	public String getAgentEmail() {
-		return AgentEmail;
+		return agentEmail;
 	}
-
-
-
 
 	public void setAgentEmail(String agentEmail) {
-		AgentEmail = agentEmail;
+		this.agentEmail = agentEmail;
 	}
-
-
-
 
 	public String getAgentPassword() {
-		return AgentPassword;
+		return agentPassword;
 	}
-
-
-
 
 	public void setAgentPassword(String agentPassword) {
-		AgentPassword = agentPassword;
+		this.agentPassword = agentPassword;
 	}
-
-
-
 
 	public String getLoginStatus() {
-		return LoginStatus;
+		return loginStatus;
 	}
-
-
-
 
 	public void setLoginStatus(String loginStatus) {
-		LoginStatus = loginStatus;
+		this.loginStatus = loginStatus;
 	}
-
-
-
 
 	public int getAgentLogincount() {
-		return AgentLogincount;
+		return agentLogincount;
 	}
-
-
-
 
 	public void setAgentLogincount(int agentLogincount) {
-		AgentLogincount = agentLogincount;
+		this.agentLogincount = agentLogincount;
 	}
-
-
-
 
 	@Override
 	public String toString() {
-		return "agents [AgentId=" + AgentId + ", AgentName=" + AgentName + ", AgentEmail=" + AgentEmail
-				+ ", AgentPassword=" + AgentPassword + ", LoginStatus=" + LoginStatus + ", AgentLogincount="
-				+ AgentLogincount + "]";
+		return "Agents [agentId=" + agentId + ", agentName=" + agentName + ", agentEmail=" + agentEmail
+				+ ", agentPassword=" + agentPassword + ", loginStatus=" + loginStatus + ", agentLogincount="
+				+ agentLogincount + "]";
 	}
+	
+	
 	
 }

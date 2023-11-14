@@ -3,6 +3,7 @@ package com.mindgate.main.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +14,10 @@ import com.mindgate.main.domain.Agents;
 import com.mindgate.main.service.AgentServiceInterface;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("agentapi")
 public class AgentContoller {
+	
 	
 	@Autowired
 	private AgentServiceInterface agentServiceInterface;
@@ -57,16 +60,13 @@ public class AgentContoller {
 		return agentServiceInterface.updateAgent(agents);
 	}
 	
+	
+	
+	// http://localhost:8081/agentapi/agents/agentlogin
+	
+	@RequestMapping(value = "agents/agentlogin",method = RequestMethod.POST)
+	public Agents agentLogin(@RequestBody Agents agents) {
+		return agentServiceInterface.Login(agents);
+	}
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-

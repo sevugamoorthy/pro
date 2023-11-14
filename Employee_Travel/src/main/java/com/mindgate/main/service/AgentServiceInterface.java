@@ -10,5 +10,7 @@ public interface AgentServiceInterface {
 	public boolean deleteAgent(int AgentId);
 	public Agents getAgentByAgentId(int AgentID);
 	public List<Agents>getAllAgent();
+	public Agents Login(Agents agents);
 
+	
 }

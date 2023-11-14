@@ -95,8 +95,12 @@ public class EmployeesRepository implements EmployeesRepositoryInterface {
 	@Override
 	public Employees getEmployeeByEmail(String email) {
 		EmployeesRowMapper employeesRowMapper=new EmployeesRowMapper();
+		try {
 		Employees employees=jdbcTemplate.queryForObject(SELECT_ONE_EMPLOYEE_BY_EMAIL, employeesRowMapper, email);
 		return employees;
+		}catch (Exception e) {
+			return null;
+		}
 	}
 	
 

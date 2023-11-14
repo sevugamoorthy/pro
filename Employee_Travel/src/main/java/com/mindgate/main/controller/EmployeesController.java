@@ -4,6 +4,7 @@ package com.mindgate.main.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mindgate.main.domain.Employees;
 import com.mindgate.main.service.EmployeesServiceInterface;
 
+@CrossOrigin("*")
 @RestController
 public class EmployeesController {
 	
@@ -61,7 +63,9 @@ public class EmployeesController {
                     return employeesServiceInterface.updateEmployee(employees);
                 }
 	
-    
+                
+                // Login
+             // http://localhost:8081/employee/login
                 @RequestMapping(value="employee/login", method = RequestMethod.POST)
                 public Employees login(@RequestBody Employees employees) {
                 	return employeesServiceInterface.login(employees);
